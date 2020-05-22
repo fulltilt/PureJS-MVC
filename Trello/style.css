@@ -1,0 +1,60 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  font-size: 1rem;
+  color: #444;
+}
+
+ul {
+  list-style-type: none;
+  padding-top: 3em;
+  display: flex;
+}
+
+#root {
+  max-width: 900px;
+  min-height: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  background: linear-gradient(#3eb9de, #3a80de);
+  background-size: cover;
+  background-position: center;
+  border-radius: 1rem;
+}
+
+li.task-container {
+  position: relative;
+  min-height: 100px;
+  width: 230px;
+  border-radius: 6px;
+  padding: 8px;
+  margin-right: 3em;
+  background-color: #e5eff5;
+}
+
+li.task-container.over {
+  border: 2px dashed #000;
+}
+
+li.task-container h5 {
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  margin: 0 0 8px 3px;
+}
+
+.task {
+  background-color: #fff;
+  padding: 6px 8px;
+  min-height: 33px;
+}
+
+.delete-container {
+  position: absolute;
+  right: 0.5em;
+  top: 0.5em;
+}
