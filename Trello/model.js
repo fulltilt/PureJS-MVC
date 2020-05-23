@@ -1,9 +1,19 @@
+function getRandomInt(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
 function Model() {
-  this.containers = [
-    new Containers(1, "Test"),
-    new Containers(2, "Test2"),
-    new Containers(3, "Test3"),
-  ];
+  this.containers = [new Containers(1, "fasf"), new Containers(0, "")];
+
+  this.addContainer = function (title) {
+    let id = Math.floor(getRandomInt(1, 1000));
+    this.containers.push(new Containers(id, title));
+    const lastElIndex = this.containers.length - 1;
+    [this.containers[lastElIndex], this.containers[lastElIndex - 1]] = [
+      this.containers[lastElIndex - 1],
+      this.containers[lastElIndex],
+    ];
+  };
 
   this.removeContainer = function (id) {
     this.containers = this.containers.filter(
@@ -30,6 +40,14 @@ function Model() {
       this.containers = left.concat(t).concat(mid).concat(right);
     }
   };
+
+  this.addTask = function (text, container) {
+    let containerToAddTo = this.containers.filter(
+      (c) => c.id === container.id
+    )[0];
+    let id = Math.floor(getRandomInt(1, 1000));
+    containerToAddTo.tasks.push(new Task(id, text));
+  };
 }
 
 function Containers(id, title) {
@@ -38,7 +56,7 @@ function Containers(id, title) {
   this.tasks = [];
 
   this.addTask = function (taskText) {
-    const task = new Tasks(
+    const task = new Task(
       this.tasks.length > 0 ? this.tasks[this.tasks.length - 1].id + 1 : 1,
       taskText
     );
@@ -72,8 +90,7 @@ function Containers(id, title) {
   };
 }
 
-function Tasks(id, name, description) {
-  this.name = name;
-  this.description = description;
-  this.complete = false;
+function Task(id, text) {
+  this.id = id;
+  this.text = text;
 }

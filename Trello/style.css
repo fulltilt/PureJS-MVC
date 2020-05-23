@@ -47,14 +47,85 @@ li.task-container h5 {
   margin: 0 0 8px 3px;
 }
 
-.task {
-  background-color: #fff;
-  padding: 6px 8px;
-  min-height: 33px;
+li.new-container {
+  position: relative;
+  height: 50px;
+  width: 230px;
+  border-radius: 6px;
+  padding: 8px;
+  background-color: #add8e6;
 }
 
-.delete-container {
+li.add-container {
+  position: relative;
+  width: 230px;
+  border-radius: 6px;
+  padding: 8px;
+  margin-right: 3em;
+  background-color: #e5eff5;
+}
+
+.add-input {
+  width: 100%;
+  line-height: 20px;
+  padding: 8px 12px;
+  border-radius: 3px;
+}
+
+.add-container-button {
+  background-color: #5aac44;
+  border: none;
+  color: #fff;
+  height: 32px;
+  padding: 4px 0;
+  width: 100px;
+  margin-top: 1em;
+  border-radius: 3px;
+}
+
+.add-container-button::before {
+  content: "\002b";
+}
+
+.add-task-button {
+  padding-top: 1.5em;
+}
+
+.add-task-button::before {
+  content: "\002b";
+}
+
+.task-list {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.task {
+  position: relative;
+  background-color: #fff;
+  padding: 6px 8px 2px;
+  margin: 0.5em 0;
+  z-index: 10;
+  width: 100%;
+  border-radius: 3px;
+}
+
+.task.over {
+  border: 2px dashed #000;
+}
+
+.close {
   position: absolute;
   right: 0.5em;
   top: 0.5em;
+}
+
+.add-text {
+  padding: 0.5em;
+}
+
+.task-text {
+  margin: 10px;
 }
